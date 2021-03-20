@@ -1,59 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image bulk download - Wikimedia Commons</title>
-    <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
-</head>
-<nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="{{ url_for('index') }}">Image Bulk</a>
-</nav>
-<body>
-    <div class="container" style="margin-top: 50px;">
-        <div class="row">
-
-        </div>
-        <form method="POST">
-            <div class="col-9">
-                <div class="form-group row">
-                    <div class="input-group mb-3">
-                        <input type="text" id="categoryName" class="form-control" placeholder="Category:Photos of Earth by Apollo spacecraft">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" id="addImages" type="button">Add images</button>
-                        </div>
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST">
+        <div class="col-9">
+            <div class="form-group row">
+                <div class="input-group mb-3">
+                    <input type="text" id="categoryName" class="form-control" placeholder="Category:Photos of Earth by Apollo spacecraft">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" id="addImages" type="button">Add images</button>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="imageNameList">Images list:</label>
-                    <textarea 
-                        class="form-control" 
-                        name="imageNameList" 
-                        id="imageNameList" 
-                        rows="50"
-                        wrap="hard" 
-                        style="height: 200px;"
-                        placeholder="File:The Earth seen from Apollo 17.jpg"
-                    ></textarea>
-                </div>
-                <div class="form-group row">
-                    <button type="submit" id="formSubmit" class="btn btn-success">Download as zip</button>
-                </div>
             </div>
-        </form>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <h5>Notes:-</h5>
-        <p style="font-size: 12px; margin-bottom: 0px;">1. Currently, it is only works for Wikimedia Commons for 50 files at a time.</p>
-        <p style="font-size: 12px;">2. In Image list, only write one file in one line. If line exceeding then remove it.</p>
-        <p>
-            <small> Created by: <a href="https://meta.wikimedia.org/wiki/User:Jayprakash12345"> Jay Prakash</a> 
-            For more information, see: <a href="https://meta.wikimedia.org/wiki/Indic-TechCom">Indic-TechCom</a> </small>
-        </p>
-    </div>
-</body>
-</html>
+            <div class="form-group row">
+                <label for="imageNameList">Images list:</label>
+                <textarea
+                    class="form-control"
+                    name="imageNameList"
+                    id="imageNameList"
+                    rows="50"
+                    wrap="hard"
+                    style="height: 200px;"
+                    placeholder="File:The Earth seen from Apollo 17.jpg"
+                ></textarea>
+            </div>
+            <div class="form-group row">
+                <button type="submit" id="formSubmit" class="btn btn-success">Start zipping</button>
+            </div>
+        </div>
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h5>Notes:-</h5>
+    <p style="font-size: 12px; margin-bottom: 0px;">1. Currently, it is only works for Wikimedia Commons for 50 files at a time.</p>
+    <p style="font-size: 12px;">2. In Image list, only write one file in one line. If line exceeding then remove it.</p>
+    <p>
+        <small> Created by: <a href="https://meta.wikimedia.org/wiki/User:Jayprakash12345"> Jay Prakash</a>
+        For more information, see: <a href="https://meta.wikimedia.org/wiki/Indic-TechCom">Indic-TechCom</a> </small>
+    </p>
+{% endblock %}

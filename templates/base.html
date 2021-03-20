@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image bulk download - Wikimedia Commons</title>
+    <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</head>
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Image Bulk</a>
+</nav>
+<body>
+    <div class="container" style="margin-top: 50px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
