@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imagebulk.worker
+  namespace: tool-imagebulk
+  labels:
+    name: imagebulk.worker
+    toolforge: tool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: imagebulk.worker
+      toolforge: tool
+  template:
+    metadata:
+      labels:
+        name: imagebulk.worker
+        toolforge: tool
+    spec:
+      containers:
+        - name: bot
+          image: docker-registry.tools.wmflabs.org/toolforge-python37-sssd-base:latest
+          command: [ "sh" , "/data/project/imagebulk/www/python/src/run.sh" ]
+          workingDir: /data/project/imagebulk/www/python/src/
+          env:
+            - name: HOME
+              value: /data/project/imagebulk
+          imagePullPolicy: Always
