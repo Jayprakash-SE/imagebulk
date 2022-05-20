@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
     <form method="POST">
+        <a class="btn btn-secondary" href="{{ url_for('changelang') }}" style="float: right;"> {{ _('changelanguage') }}</a>
         <div class="col-9">
             <div class="form-group row">
                 <div class="input-group mb-3">
-                    <input type="text" id="categoryName" class="form-control" placeholder="Category:Photos of Earth by Apollo spacecraft">
+                    <input type="text" id="categoryName" class="form-control" placeholder="{{ _('cat-placeholder') }}">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" id="addImages" type="button">Add images</button>
+                        <button class="btn btn-outline-secondary" id="addImages" type="button">{{ _('add-images-button') }}</button>
                     </div>
-                </div>
+                </div>              
             </div>
             <div class="form-group row">
-                <label for="imageNameList">Images list:</label>
+                <label for="imageNameList">{{_('lable-images-list')}}:</label>
                 <textarea
                     class="form-control"
                     name="imageNameList"
@@ -19,11 +20,11 @@
                     rows="50"
                     wrap="hard"
                     style="height: 200px;"
-                    placeholder="File:The Earth seen from Apollo 17.jpg"
+                    placeholder="{{ _('file-name') }}"
                 ></textarea>
             </div>
             <div class="form-group row">
-                <button type="submit" id="formSubmit" class="btn btn-success">Start zipping</button>
+                <button type="submit" id="formSubmit" class="btn btn-success">{{ _('start-zipping-button') }}</button>
             </div>
         </div>
     </form>
@@ -31,9 +32,9 @@
     <br/>
     <br/>
     <br/>
-    <h5>Notes:-</h5>
-    <p style="font-size: 12px; margin-bottom: 0px;">1. Currently, it is only works for Wikimedia Commons for 50 files at a time.</p>
-    <p style="font-size: 12px;">2. In Image list, only write one file in one line. If line exceeding then remove it.</p>
+    <h5>{{ _('notes') }}:-</h5>
+    <p style="font-size: 12px; margin-bottom: 0px;">{{ _('notes-1') }}</p>
+    <p style="font-size: 12px;">{{ _('notes-2') }}</p>
     <p>
         <small> Created by: <a href="https://meta.wikimedia.org/wiki/User:Jayprakash12345"> Jay Prakash</a>
         For more information, see: <a href="https://meta.wikimedia.org/wiki/Indic-TechCom">Indic-TechCom</a> </small>

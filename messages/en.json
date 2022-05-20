@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+		"authors": [
+			"Ramu ummadishetty"
+		]
+	},
+    "add-images-button": "Add Images",
+    "cat-placeholder":"Category:Photos of Earth by Apollo spacecraft",
+    "lable-images-list":"Images list",
+    "start-zipping-button":"Start zipping",
+    "file-name":"File:The Earth seen from Apollo 17.jpg",
+    "notes":"Notes",
+    "changelanguage": "Change Language",
+    "notes-1":"1. Currently, it is only works for Wikimedia Commons for 50 files at a time.",
+    "notes-2":"2. In Image list, only write one file in one line. If line exceeding then remove it.",
+    "title-project":"Image bulk download - Wikimedia Commons",
+    "nav-name":"Image Bulk",
+    "button-save": "Save",
+    "button-cancel": "Cancel",
+    "my-language": "My Language",
+    "download": "Download",
+    "loading":"Loading",
+    "message": "Please wait untill status is SUCCESS",
+    "status":"Status"
+}
