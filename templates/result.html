@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<small>Please wait untill status is SUCCESS.</small>
+<small>{{ _('message') }}.</small>
 <br/>
 <br/>
 <br/>
 <br/>
-<p>Status: <span id="taskStatus"></span></p>
+<p>{{ _('status' )}}: <span id="taskStatus"></span></p>
 <div id="processDiv" class="spinner-border" role="status">
-    <span class="sr-only">Loading...</span>
+    <span class="sr-only">{{ _('loading') }}...</span>
 </div>
-<a style="display: none;" id="downloadBtn" class="btn btn-success">Download</button>
+<a style="display: none;" id="downloadBtn" class="btn btn-success">{{ _('download') }}</button>
 <script>
     $( function(){
         var intervalId = setInterval( function(){

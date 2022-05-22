@@ -3,10 +3,14 @@ from flask import Flask, render_template, make_response, request, jsonify, \
 from tasks import createZip
 import os
 from celeryWorker import app as celeryApp
+from flask_jsonlocale import Locales
 
 app = Flask( __name__ )
 app.config["API_URL"] = "https://commons.wikimedia.org/w/api.php"
-
+app.config["MESSAGES_DIR"] = "messages"
+app.config["SECRET_KEY"] = os.urandom(24)
+locales = Locales(app)
+_ = locales.get_message
 
 @app.route('/', methods=[ "GET", "POST"])
 def index():
@@ -45,6 +49,17 @@ def taskStatus(id):
         })
 
     return jsonify( { "status": res.state } )
+
+
+@app.route('/changelang', methods=['GET', 'POST'])
+def changelang():
+    if request.method == "POST":
+        locales.set_locale(request.form['locale'])
+        return redirect(url_for('index'))
+
+    lcs = locales.get_locales()
+    per_lce = locales.get_permanent_locale()
+    return render_template('changelanguage.html', locales=lcs, permanent_locale=per_lce)
 
 
 if '__main__' == __name__:
