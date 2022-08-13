@@ -20,7 +20,7 @@ $( function(){
             members.forEach(item => {
                 cats += item.title + "\n";
             });
-            $("#imageNameList").append(cats);
+            $("#imageNameList").val(cats);
         })
     });
 });
